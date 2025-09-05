@@ -1,5 +1,19 @@
 <?php
 
+/**
+ * Theme setup for WordPress 6.5.2 / PHP 8.1 compatibility.
+ */
+function musikalienhandel_setup() {
+    add_theme_support( 'title-tag' );
+}
+add_action( 'after_setup_theme', 'musikalienhandel_setup' );
+
+if ( ! function_exists( 'wp_body_open' ) ) {
+    function wp_body_open() {
+        do_action( 'wp_body_open' );
+    }
+}
+
 //Adding the Open Graph in the Language Attributes
 function add_opengraph_doctype( $output ) {
         return $output . ' xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"';
@@ -131,8 +145,8 @@ function kubrick_add_theme_page() {
 						update_option('kubrick_header_color', $_REQUEST['njfontcolor']);
 
 					if ( preg_match('/[0-9A-F]{6}|[0-9A-F]{3}/i', $_REQUEST['njuppercolor'], $uc) && preg_match('/[0-9A-F]{6}|[0-9A-F]{3}/i', $_REQUEST['njlowercolor'], $lc) ) {
-						$uc = ( strlen($uc[0]) == 3 ) ? $uc[0]{0}.$uc[0]{0}.$uc[0]{1}.$uc[0]{1}.$uc[0]{2}.$uc[0]{2} : $uc[0];
-						$lc = ( strlen($lc[0]) == 3 ) ? $lc[0]{0}.$lc[0]{0}.$lc[0]{1}.$lc[0]{1}.$lc[0]{2}.$lc[0]{2} : $lc[0];
+                                                $uc = ( strlen($uc[0]) == 3 ) ? $uc[0][0].$uc[0][0].$uc[0][1].$uc[0][1].$uc[0][2].$uc[0][2] : $uc[0];
+                                                $lc = ( strlen($lc[0]) == 3 ) ? $lc[0][0].$lc[0][0].$lc[0][1].$lc[0][1].$lc[0][2].$lc[0][2] : $lc[0];
 						update_option('kubrick_header_image', "header-img.php?upper=$uc&amp;lower=$lc");
 					}
 
