@@ -34,5 +34,6 @@
 
   <script src="<?= get_template_directory_uri(); ?>/struktur/lib/jquery-3.1.1.slim.min.js"></script>
   <script async src="<?= get_template_directory_uri(); ?>/struktur/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<?php wp_footer(); ?>
 </body>
 </html>

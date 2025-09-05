@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html <?php language_attributes(); ?>>
 
 <head profile="http://gmpg.org/xfn/11">
-<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
+<meta charset="<?php bloginfo('charset'); ?>" />
 
 <script src="https://cloud.ccm19.de/app.js?apiKey=7d7e22e4605567d8d9fe635802f0ab18e65db6a32df46c24&amp;domain=638201d33a94bf1a0c32d2e2" referrerpolicy="origin"></script>
 
@@ -70,8 +70,10 @@ if ( !$withcomments && !is_single() ) {
     }
   </script>
 
+<?php wp_head(); ?>
 </head>
-<body>
+<body <?php body_class(); ?>>
+<?php wp_body_open(); ?>
   <div class="container">
   	<div id="hauptblock" class="blog">
       <div class="row">
